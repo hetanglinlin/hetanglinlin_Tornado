@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <!--引入css、js、images、font-->
+    <link rel="stylesheet" href="/static/css/style.css">
+    {# django使用{% load static %}  {% static 'css/style.css' %}  #}
+    {# flask使用{{ url_for('static', filename='css/style.css') }} #}
+    {# tornado使用 {{ static_url('css/style.css') }} #}
+
+    <link rel="stylesheet" href="{{ static_url('css/style.css') }}">
+{% end %}
+
+{% block content %}
+    <p>index页面</p>
+
+    {# 变量解析使用{{ 变量名 }}，变量名必须定义 #}
+    {# django中取列表中第一个元素， item1.0 #}
+    {# flask/tornado中取列表中第一个元素， item1[0] #}
+    {{ item1[0] }}
+
+    {# 标签使用{% 标签 %}  {% end %} #}
+    {% for i in item1 %}
+
+        {% if i == 'Vue' %}
+            <span style="color:red;">{{ i }}</span>
+        {% else %}
+            {{ i }}
+        {% end %}
+
+    {% end %}
+
+    {# try except finally end #}
+    {% try %}
+        {{ item1[100] }}
+        {{ a }}
+    {% except %}
+        <p>语法错误</p>
+    {% finally %}
+        <p>无论如何都会执行</p>
+    {% end %}
+
+    {# while循环 #}
+    {% while item1 %}
+        {{ item1.pop() }}
+    {% end %}
+
+    {% set a = 1 %}
+    {{ a }}
+
+{% end %}
