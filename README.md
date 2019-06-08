@@ -12,3 +12,12 @@
 ### sqlalchemy的使用，模型定义，迁移命令
 ### 数据的增删改
 ### 数据的查询、tornado-sqlalchemy简单讲解
+
+
+### 同步性能测试、ab测试
+### 异步asynchronous装饰、ab测试
+### 异步生成器coroutine和async与await、ab测试
+### 长连接和短连接的引入
+### 注册功能与form表单的实现
+### 登录功能
+### websocket聊天室
